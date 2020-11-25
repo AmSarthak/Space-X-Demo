@@ -28,6 +28,9 @@ class Home extends React.Component {
       this.state.filterYears.push(this.state.totalData[x].launch_year);
       this.state.yearCountMap.set(this.state.totalData[x].launch_year,0);
     }
+    if(this.state.filterYear=='' && this.state.launchSuccess=='' && this.state.landSuccess==''){
+      this.state.filteredArr = this.state.totalData;
+    }
     this.setState({
       isDataAvailable : true
     })
@@ -46,18 +49,20 @@ class Home extends React.Component {
       this.setState({filterYear:''})
     }
     else{
-      this.setState({filterYear:year})
       this.state.filteredArr = this.state.totalData.filter((data)=>{
         return data.launch_year == year
       })
+      this.setState({filterYear:year})
     }
     this.setState({
       isDataAvailable : true
     })
+    
   }
   createCards(){
-    if(!this.state.isDataAvailable){
-      return <img alt="loading" src={loader}></img>
+    if(!this.state.isDataAvailable && this.state.filterYears.length!=0){
+      return <img className="cards-loader" alt="loading" src={loader}></img>
+      //return
     }
     else{
       return (
@@ -65,7 +70,7 @@ class Home extends React.Component {
         {
           this.state.filteredArr.map(mission => (
             <div key={mission.mission_name} className="custom-card">
-            <img alt="logo"  height="60" src={mission.links.mission_patch}></img>
+            <img alt="logo"  height="60" className="mt-2" src={mission.links.mission_patch}></img>
               <h5 className="bold">{mission.mission_name}</h5>
               <div className="custom-card-body">
               <span className="bold">Mission IDs</span>
@@ -74,11 +79,10 @@ class Home extends React.Component {
                   <p>{id}</p>
                 ))}
               <span className="bold">Launch Year:</span> {mission.launch_year}
-              
               <br></br>
-              <span className="bold">Successfull Launch:</span> {this.state.launchSuccess}
+              <span className="bold">Successfull Launch:</span> {(this.state.launchSuccess)==''?'NA':this.state.launchSuccess}
               <br></br>
-              <span className="bold">Successfull Landing:</span> {this.state.landSuccess}
+              <span className="bold mb-2">Successfull Landing:</span> {(this.state.landSuccess)==''?'NA':this.state.landSuccess}
               <br></br>
               </div>
             </div>
@@ -122,11 +126,18 @@ class Home extends React.Component {
     }
     axios.get(url)
     .then(response => {
-     console.log(response.data);
+     
      this.setState({
       totalData :response.data
      })
      this.getYears();
+     if(this.state.filterYear!=''){
+          this.getDataByYear(this.state.filterYear);
+      }
+      else{
+        this.state.filteredArr = this.state.totalData;
+      }
+     
      this.setState({
       isDataAvailable : true
     })
@@ -154,11 +165,14 @@ class Home extends React.Component {
   }
   handleChange(e){
     this.setState({
+      isDataAvailable : false
+    })
+    this.setState({
       [e.target.name] : e.target.value,
     })
     setTimeout(() => {
       this.sortBySuccessFlag();
-    }, 500);
+    }, 100);
    
   }
   render() {
@@ -169,9 +183,10 @@ class Home extends React.Component {
         <hr></hr>
         <div>
          <h3 className="filters">Filters</h3> 
+         <hr></hr>
          <div className="years-btn">
-          <span className="">Launch Year</span>
-          <hr></hr>
+          <span className="bold">Launch Year</span>
+          
          </div> 
           <div>
             {this.createButtonElements()}

@@ -10,6 +10,10 @@
   margin: 0 auto;
   text-align:center;
 }
+.cards-loader{
+  position: absolute;
+  left: 28%;
+}
 .filters{
   margin-left: 10px;
 }
@@ -23,7 +27,8 @@
 .custom-card{
   width: 300px;
   border: 1px solid black;
-  margin-bottom: 10px;;
+  margin-bottom: 10px;
+  background-color: #ebebeb;
 }
 .bold{
   font-weight: bold;
