@@ -150,7 +150,6 @@ class Home extends React.Component {
     var url = 'https://api.spaceXdata.com/v3/launches?limit=100';
     axios.get(url)
     .then(response => {
-     console.log(response.data);
      this.setState({
       totalData :response.data
      })
@@ -193,17 +192,17 @@ class Home extends React.Component {
           </div>   
          <span className="text-center bold">Successfull Launch</span>
          <br></br>
-         <input type="radio" id="true" onClick={this.handleChange} name="launchSuccess" value="true"/>
-         <label className="ml-2 mr-2"  for="true">True</label>
-         <input type="radio" id="false" onClick={this.handleChange} name="launchSuccess" value="false"/>
-         <label className="ml-2 mr-2"  for="false">False</label>
+         <input className="radio" type="radio" id="launchSuccesstrue" onClick={this.handleChange} name="launchSuccess" value="true"/>
+         <label className="ml-2 mr-2"  htmlFor="launchSuccesstrue">True</label>
+         <input type="radio" id="launchSuccessfalse" onClick={this.handleChange} name="launchSuccess" value="false"/>
+         <label className="ml-2 mr-2"  htmlFor="launchSuccessfalse">False</label>
          <br></br>
          <span className="text-center bold">Successfull Landing</span>
          <br></br>
-         <input type="radio" id="true" onClick={this.handleChange} name="landSuccess" value="true"/>
-         <label className="ml-2 mr-2" for="true">True</label>
-         <input type="radio" id="false" onClick={this.handleChange} name="landSuccess" value="false"/>
-         <label className="ml-2 mr-2"  for="false">False</label>
+         <input type="radio" id="landSuccesstrue" onClick={this.handleChange} name="landSuccess" value="true"/>
+         <label className="ml-2 mr-2" htmlFor="landSuccesstrue">True</label>
+         <input type="radio" id="landSuccessfalse" onClick={this.handleChange} name="landSuccess" value="false"/>
+         <label className="ml-2 mr-2"  htmlFor="landSuccessfalse">False</label>
          <br></br>
         </div>      
         <div className="cards-main-div">

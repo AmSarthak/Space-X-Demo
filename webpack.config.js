@@ -23,8 +23,16 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/i,
+        test: /\.(css|less)$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       }
     ]
   },

@@ -1,5 +1,5 @@
 import express from "express";
-import App from "../src/App";
+import Home from "../src/Components/Home";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import hbs from "handlebars";
@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
         </html>
         `;
         const hbsTemplate = hbs.compile(theHtml);
-        const reactComp = renderToString(<App />);
+        const reactComp = renderToString(<Home />);
         const htmlToSend = hbsTemplate({ main: reactComp });
         res.send(htmlToSend);
 });

@@ -9,5 +9,5 @@ import ReactDOM from 'react-dom';
 import './Assets/index.css';
 import Home from './Components/Home';
 
-ReactDOM.render(<Home />, document.getElementById('root'));
+ReactDOM.hydrate(<Home />, document.getElementById('root'));
 

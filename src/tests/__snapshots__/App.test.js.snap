@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component Snapshot should render my component 1`] = `ShallowWrapper {}`;
+
+exports[`Home Component should render my component 1`] = `ShallowWrapper {}`;
