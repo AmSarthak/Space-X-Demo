@@ -101,7 +101,7 @@ class Home extends React.Component {
         <div>
         {
           tempArr.map(year => (
-            <button key={year}  id={year} className="btn btn-success ml-2 mt-2 mb-2" key={year} onClick={() =>this.getDataByYear(year)}>
+            <button key={year}  id={year} className="custom-button" key={year} onClick={() =>this.getDataByYear(year)}>
               {year}
             </button>
         ))}
@@ -177,38 +177,41 @@ class Home extends React.Component {
   render() {
 
     return (
-      <div className="center container-fluid">
+      <div className="center">
         <h1 className="title">SpaceX Launch Programs</h1>
         <hr></hr>
-        <div>
-         <h3 className="filters">Filters</h3> 
-         <hr></hr>
-         <div className="years-btn">
-          <span className="bold">Launch Year</span>
-          
-         </div> 
-          <div>
-            {this.createButtonElements()}
-          </div>   
-         <span className="text-center bold">Successfull Launch</span>
-         <br></br>
-         <input className="radio" type="radio" id="launchSuccesstrue" onClick={this.handleChange} name="launchSuccess" value="true"/>
-         <label className="ml-2 mr-2"  htmlFor="launchSuccesstrue">True</label>
-         <input type="radio" id="launchSuccessfalse" onClick={this.handleChange} name="launchSuccess" value="false"/>
-         <label className="ml-2 mr-2"  htmlFor="launchSuccessfalse">False</label>
-         <br></br>
-         <span className="text-center bold">Successfull Landing</span>
-         <br></br>
-         <input type="radio" id="landSuccesstrue" onClick={this.handleChange} name="landSuccess" value="true"/>
-         <label className="ml-2 mr-2" htmlFor="landSuccesstrue">True</label>
-         <input type="radio" id="landSuccessfalse" onClick={this.handleChange} name="landSuccess" value="false"/>
-         <label className="ml-2 mr-2"  htmlFor="landSuccessfalse">False</label>
-         <br></br>
-        </div>      
-        <div className="cards-main-div">
-          {this.createCards()}
+        <div className="center container-div">
+          <div className="filters-div">
+            <h3 className="filters">Filters</h3> 
+            <hr></hr>
+            <div className="years-btn">
+              <span className="bold">Launch Year</span>
+            </div> 
+            <div>
+              {this.createButtonElements()}
+            </div>   
+            <span className="text-center bold">Successfull Launch</span>
+            <br></br>
+            <input className="radio" type="radio" id="launchSuccesstrue" onClick={this.handleChange} name="launchSuccess" value="true"/>
+            <label className="ml-2 mr-2"  htmlFor="launchSuccesstrue">True</label>
+            <input type="radio" id="launchSuccessfalse" onClick={this.handleChange} name="launchSuccess" value="false"/>
+            <label className="ml-2 mr-2"  htmlFor="launchSuccessfalse">False</label>
+            <br></br>
+            <span className="text-center bold">Successfull Landing</span>
+            <br></br>
+            <input type="radio" id="landSuccesstrue" onClick={this.handleChange} name="landSuccess" value="true"/>
+            <label className="ml-2 mr-2" htmlFor="landSuccesstrue">True</label>
+            <input type="radio" id="landSuccessfalse" onClick={this.handleChange} name="landSuccess" value="false"/>
+            <label className="ml-2 mr-2"  htmlFor="landSuccessfalse">False</label>
+            <br></br>
+          </div>      
+          <div className="cards-main-div">
+            {this.createCards()}
+          </div>
         </div>
+        <span className="developed-by">Developed by: Sarthak Chakraborty</span>
       </div>
+      
     );
   }
 }

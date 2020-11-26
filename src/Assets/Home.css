@@ -1,7 +1,47 @@
+@media only screen and (min-width: 768px) {
+  .container-div{
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .filters-div{
+    width: 580px !important;
+  }
+  .cards-main-div{
+    margin: 39px 40px !important;
+  }
+  .cards-loader{
+    left: 45% !important;
+    height: 300px !important;
+  }
+  .custom-card{
+    width: 202px !important;
+    margin: 10px 9px !important;
+    float: left !important;
+    height: 300px !important;
+  }
+}
+.developed-by{
+  margin: 0 auto;
+}
 .App{
   text-align: center;
 }
+.custom-button{
+  margin-left: 8px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #54ffa7;
+  width: 120px;
+}
+.custom-button:active{
+  font-weight: bold;
+}
 
+.filters-div{
+  width: 260px;
+  margin: 0 auto;
+}
 .title{
   text-align: center;
   margin-left: 11x;
@@ -9,6 +49,9 @@
 .center{
   margin: 0 auto;
   text-align:center;
+}
+.container-div{
+  width: 260px;
 }
 .cards-loader{
   position: absolute;
@@ -25,9 +68,9 @@
   
 }
 .custom-card{
-  width: 300px;
+  width: 210px;
   border: 1px solid black;
-  margin-bottom: 10px;
+  margin:10px -10px;
   background-color: #ebebeb;
 }
 .bold{
