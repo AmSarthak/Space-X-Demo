@@ -1,11 +1,11 @@
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1024px){
   .container-div{
     display: flex !important;
     flex-direction: row !important;
     width: 100% !important;
   }
   .filters-div{
-    width: 580px !important;
+    width: 389px !important;
   }
   .cards-main-div{
     margin: 39px 40px !important;
@@ -15,14 +15,39 @@
     height: 300px !important;
   }
   .custom-card{
-    width: 202px !important;
-    margin: 10px 9px !important;
+    width:20% !important;
+    margin: 7px 15px !important;
     float: left !important;
+    min-height: 350px !important;
+  }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+  .container-div{
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+  }
+  .filters-div{
+    width: 500px !important;
+  }
+  .cards-main-div{
+    margin: 39px 40px !important;
+  }
+  .cards-loader{
+    left: 45% !important;
     height: 300px !important;
+  }
+  .custom-card{
+    width: 45% !important;
+    margin: 7px 10px !important;
+    float: left !important;
+    min-height: 350px !important;
   }
 }
 .developed-by{
   margin: 0 auto;
+  /* position: absolute;
+  top: 0px; */
 }
 .App{
   text-align: center;

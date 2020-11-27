@@ -76,7 +76,7 @@ class Home extends React.Component {
               <span className="bold">Mission IDs</span>
               <br></br>
                 {mission.mission_id.map(id=>(
-                  <p>{id}</p>
+                  <p key={id}>{id}</p>
                 ))}
               <span className="bold">Launch Year:</span> {mission.launch_year}
               <br></br>
@@ -192,26 +192,26 @@ class Home extends React.Component {
             </div>   
             <span className="text-center bold">Successfull Launch</span>
             <br></br>
-            <input className="radio" type="radio" id="launchSuccesstrue" onClick={this.handleChange} name="launchSuccess" value="true"/>
-            <label className="ml-2 mr-2"  htmlFor="launchSuccesstrue">True</label>
-            <input type="radio" id="launchSuccessfalse" onClick={this.handleChange} name="launchSuccess" value="false"/>
-            <label className="ml-2 mr-2"  htmlFor="launchSuccessfalse">False</label>
+            <button className="custom-button" type="button" id="launchSuccesstrue" onClick={this.handleChange} name="launchSuccess" value="true">True</button>
+            <button className="custom-button" type="button" id="launchSuccessfalse" onClick={this.handleChange} name="launchSuccess" value="false">False</button>
             <br></br>
-            <span className="text-center bold">Successfull Landing</span>
+            <span className="text-center bold">Successfull Land</span>
+            <br></br>
+            <button className="custom-button" type="button" id="landSuccesstrue" onClick={this.handleChange} name="landSuccess" value="true">True</button>
+            <button className="custom-button" type="button" id="landSuccessfalse" onClick={this.handleChange} name="landSuccess" value="false">False</button>
+            {/* <span className="text-center bold">Successfull Landing</span>
             <br></br>
             <input type="radio" id="landSuccesstrue" onClick={this.handleChange} name="landSuccess" value="true"/>
             <label className="ml-2 mr-2" htmlFor="landSuccesstrue">True</label>
             <input type="radio" id="landSuccessfalse" onClick={this.handleChange} name="landSuccess" value="false"/>
-            <label className="ml-2 mr-2"  htmlFor="landSuccessfalse">False</label>
+            <label className="ml-2 mr-2"  htmlFor="landSuccessfalse">False</label> */}
             <br></br>
           </div>      
           <div className="cards-main-div">
             {this.createCards()}
           </div>
         </div>
-        <span className="developed-by">Developed by: Sarthak Chakraborty</span>
       </div>
-      
     );
   }
 }
